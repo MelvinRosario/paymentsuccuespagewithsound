@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+      
+      /* .payment-loader {
+        width: 200px;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        -webkit-transform: translateY(-50%) translateX(-50%);
+        -moz-transform: translateY(-50%) translateX(-50%);
+        -o-transform: translateY(-50%) translateX(-50%);
+        transform: translateY(-50%) translateX(-50%);
+      }
+
+      .payment-loader .binding {
+        content: "";
+        width: 60px;
+        height: 4px;
+        border: 2px solid #00c4bd;
+        margin: 0 auto;
+      }
+
+      .payment-loader .pad {
+        width: 208px;
+        height: 140px;
+        border-radius: 8px;
+        border: 1px solid #5253536e;
+        box-shadow: 0 15px 25px #00000019;
+        padding: 6px;
+      }
+
+      .payment-loader .chip {
+        width: 12px;
+        height: 8px;
+        background: #5253536e;
+        border-radius: 3px;
+        margin-top: 4px;
+        margin-left: 3px;
+      }
+
+      .payment-loader .line {
+        width: 180px;
+        margin-top: 10px;
+        margin-left: 3px;
+        height: 7px;
+        background: #5253536e;
+        border-radius: 100px;
+        opacity: 0;
+        -webkit-animation: writeline 3s infinite ease-in;
+        -moz-animation: writeline 3s infinite ease-in;
+        -o-animation: writeline 3s infinite ease-in;
+        animation: writeline 3s infinite ease-in;
+      }
+
+      .payment-loader .line2 {
+        width: 140px;
+        margin-top: 10px;
+        margin-left: 3px;
+        height: 6px;
+        background: #5253536e;
+        border-radius: 100px;
+        opacity: 0;
+        -webkit-animation: writeline2 3s infinite ease-in;
+        -moz-animation: writeline2 3s infinite ease-in;
+        -o-animation: writeline2 3s infinite ease-in;
+        animation: writeline2 3s infinite ease-in;
+      }
+
+      .payment-loader .line3 {
+        width: 100px;
+        margin-top: 10px;
+        margin-left: 3px;
+        height: 5px;
+        background: #5253536e;
+        border-radius: 100px;
+        opacity: 0;
+        -webkit-animation: writeline2 3s infinite ease-in;
+        -moz-animation: writeline2 3s infinite ease-in;
+        -o-animation: writeline2 3s infinite ease-in;
+        animation: writeline2 3s infinite ease-in;
+      }
+
+      .payment-loader .line:first-child {
+        margin-top: 0;
+      }
+
+      .payment-loader .line.line1 {
+        -webkit-animation-delay: 0s;
+        -moz-animation-delay: 0s;
+        -o-animation-delay: 0s;
+        animation-delay: 0s;
+      }
+
+      .payment-loader .line.line2 {
+        -webkit-animation-delay: 0.5s;
+        -moz-animation-delay: 0.5s;
+        -o-animation-delay: 0.5s;
+        animation-delay: 0.5s;
+      }
+      .payment-loader .line.line3 {
+        -webkit-animation-delay: 0.7s;
+        -moz-animation-delay: 0.7s;
+        -o-animation-delay: 0.7s;
+        animation-delay: 0.7s;
+      }
+
+      .payment-loader .loader-text {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 16px;
+        line-height: 16px;
+        color: #5f6571;
+        font-weight: bold;
+      }
+
+      @keyframes writeline {
+        0% {
+          width: 0px;
+          opacity: 0;
+        }
+        33% {
+          width: 52px;
+          opacity: 1;
+        }
+        70% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+
+      @keyframes writeline2 {
+        0% {
+          width: 0px;
+          opacity: 0;
+        }
+        33% {
+          width: 32px;
+          opacity: 1;
+        }
+        70% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      } */
+
+      /* loader end */
+
+      /* loader end */
+
+      
+    </style>
+    <!-- button style -->
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+      }
+      ._failed {
+        border-bottom: solid 4px red !important;
+      }
+      ._failed i {
+        color: red !important;
+      }
+
+      ._success {
+        box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+        padding: 45px;
+        width: 100%;
+        text-align: center;
+        margin: 40px auto;
+        border-bottom: solid 4px #5E9C76;
+      }   
+      ._success p {
+        margin-bottom: 0px;
+        font-size: 18px;
+        color: #495057;
+        font-weight: 500;
+      }
+      .order-details {
+        text-align: center;
+        color: #312f2f;
+      }
+      .order-number-label {
+        font-size: 20px;
+        font-weight: 600;
+        padding: 10px;
+      }
+      .order-number {
+        border-top: 1px solid #d7ebd8;
+        line-height: 48px;
+        font-size: 20px;
+        font-weight: 600;
+        padding: 4px 0;
+        margin-bottom: 10px;
+      }
+      
+      .button {
+        position: relative;
+        overflow: hidden;
+        height: 3rem;
+        padding: 0 2rem;
+        border-radius: 1.5rem;
+        background: #BAE0BD;
+        background-size: 400%;
+        color: #333;
+        border: 1px solid #5E9C76;
+        cursor: pointer;
+      }
+
+      .button:hover::before {
+        transform: scaleX(1);
+        
+      }
+
+      .button-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: scaleX(0);
+        transform-origin: 0 50%;
+        width: 100%;
+        height: inherit;
+        border-radius: inherit;
+        background: linear-gradient(
+          82.3deg,
+          #fff 10.8%,
+          #fff 94.3%
+        );
+        
+        transition: all 0.475s;
+      }
+      .loader {
+      width: 10rem;
+      padding: 15px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: #BAE0BD;
+      --_m: 
+      conic-gradient(#0000 10%,#000),
+      linear-gradient(#000 0 0) content-box;
+      -webkit-mask: var(--_m);
+        mask: var(--_m);
+      -webkit-mask-composite: source-out;
+        mask-composite: subtract;
+      animation: l3 1s infinite linear;
+      }
+      @keyframes l3 {to{transform: rotate(1turn)}}
+
+      /*dots sytle  */
+      .loader2 {
+        width: 15px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        animation: l5 1s infinite linear alternate;
+      }
+      @keyframes l5 {
+          0%  {box-shadow: 20px 0 #000, -20px 0 #0002;background: #000 }
+          33% {box-shadow: 20px 0 #000, -20px 0 #0002;background: #0002}
+          66% {box-shadow: 20px 0 #0002,-20px 0 #000; background: #0002}
+          100%{box-shadow: 20px 0 #0002,-20px 0 #000; background: #000 }
+      }
+    </style>
+  </head>
+
+  <body onload="myFunction()">
+   
+      <div id="loader">
+        <div class="loader d-flex justify-content-center align-items-center" >
+         
+        </div>
+        <div class="mt-5 d-flex justify-content-center align-items-center" style="flex-direction: column;">
+          <h4>Your Payment is </h4>  
+          <h4> being processed</h4>        
+        </div>
+        <div class="d-flex justify-content-center align-items-center">
+          <div class="loader2 mt-3 " style="margin-left: -15px;"></div> 
+        </div>
+        
+      </div>
+    
+      <audio id="successSound" src="gpay.mp3"></audio>
+      
+
+
+    <!-- <div id="loader">
+        <div class="payment-loader">
+            <div class="pad">
+             <div class="chip"></div>
+            <div class="line line1"></div>
+            <div class="line line2"></div>
+            <div class="line line3"></div>
+            <div style="display: flex; justify-content: space-between;">
+            <img src="data:image/jpeg;base64,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" alt="" style="margin-top: 20px;" width="50px" height="50px">    
+    
+            </div>
+            
+          </div>
+          <div class="loader-text">
+            Please wait while your transaction being Completed
+          </div>
+        </div>
+    </div> -->
+    <div class="container" id="myDiv" style="display: none;">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="message-box _success" style="border-radius: 30px">
+            <svg class="my-3" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 40 40" width="150px" height="150px"><path fill="#bae0bd" d="M20,38.5C9.799,38.5,1.5,30.201,1.5,20S9.799,1.5,20,1.5S38.5,9.799,38.5,20S30.201,38.5,20,38.5z"/><path fill="#5e9c76" d="M20,2c9.925,0,18,8.075,18,18s-8.075,18-18,18S2,29.925,2,20S10.075,2,20,2 M20,1 C9.507,1,1,9.507,1,20s8.507,19,19,19s19-8.507,19-19S30.493,1,20,1L20,1z"/><path fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" d="M11 20L17 26 30 13"/></svg>
+            <h4>Your payment has been paid successfully</h4>
+            <div class="order-details">
+              <div class="order-number-label">Payment id</div>
+              <div class="order-number">JPZZ1V-WQRR94-78E1VE</div>
+            </div>
+            <button class="button">
+              <span class="button-content"
+                style="font-weight: bold;"><i class="fa-solid fa-arrow-down mx-1" style="font-size: 1rem;"></i>
+                Download
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- failed Status -->
+
+      <div class="row justify-content-center" style="display: none">
+        <div class="col-md-5">
+          <div class="message-box _success _failed">
+            <i class="fa fa-times-circle" aria-hidden="true"></i>
+            <h2>Your payment failed</h2>
+            <p>Try again later</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <audio id="successSound" src="gpay.mp3"></audio>
+    <script>
+      // Function to play the success sound
+      function playSuccessSound() {
+          var sound = document.getElementById("successSound");
+          sound.play();
+      }
+  
+      var myVar;
+  
+      function myFunction() {
+          myVar = setTimeout(showPage, 4000);
+          myVar = setTimeout(handleSound, 4000);
+      }
+  
+      function showPage() {
+          document.getElementById("loader").style.display = "none";
+          document.getElementById("myDiv").style.display = "block";
+      }
+  
+      // Call myFunction() when the page loads
+      myFunction();
+  
+      // Function to handle playing sound on user interaction
+      function handleSound() {
+          playSuccessSound(); // Play the success sound
+      }
+     
+  </script>
+  
+  
+  </body>
+</html>
